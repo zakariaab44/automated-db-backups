@@ -1,4 +1,4 @@
-mame: Automated DB Backups
+name: Automated DB Backups
 
 on:
   schedule:
