@@ -1,0 +1,26 @@
+mame: Automated DB Backups
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+    - cron: '0 12 * * *'
+
+  workflow_dispatch:
+
+jobs:
+  environment: automated-db-backups
+  db-backup:
+    name: Backup MongoDB and Upload to S3
+    runs-on: ubuntu-latest
+  
+    steps: 
+      - name: SSH To Remote serve
+        uses: JimCronqvist/action-ssh@7737f1192ddd8376686e9d6354dea44592c942bf
+        with:
+          hosts: ${{ secrets.HOSTS  }}
+          privateKey: ${{ secrets.PRIVATE_KEY  }}
+          command: |
+            mongodump --db=${{ secrets.DATABASE_NAME }} --out=./{{ secrets.BACKUP_PATH  }} -u=${ secrets.DB_USER} -p=${{ secrets.DB_PASSWORD }} --authenticationDatabase=admin
+            zip -r backup.zip ${{ secrets.BACKUP_PATH }} 
+            aws s3 mv backup.zip ${{ secrets.S3_BUCKET }} --metadata backup-date=$(date +%F)
+
