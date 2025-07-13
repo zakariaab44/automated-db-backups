@@ -8,9 +8,8 @@ Provide This Secrets For Workflow : \
   DB_USER (User Of Database) \
   HOSTS (username@ec2) \
   PRIVATE_KEY (Private For SSH To EC2 Instance) \
-  S3_BUCKET (S3 Bucket Path) \
+  S3_BUCKET (S3 Bucket Path) 
 
 Provide Environment Variable For Sctip startup \
   MONGO_USER (User Of Database) \
-  MONGO_SECRET (Password Of Database) \
- 
+  MONGO_SECRET (Password Of Database)  
