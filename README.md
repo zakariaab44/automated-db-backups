@@ -1,8 +1,8 @@
 https://roadmap.sh/projects/automated-backups
 When You Clone It Ensure Tp 
 
-Provide This Secrets For Workflow : 
-  BACKUP_PATH (Path Where To Store The Buckup In Instance)
+Provide This Secrets For Workflow : \
+  BACKUP_PATH (Path Where To Store The Buckup In Instance) \
   DATABASE_NAME (The Name Of Database) AND DON'T FOREGT TO CREATE IT
   DB_PASSWORD (Password Of Database)
   DB_USER (User Of Database)
